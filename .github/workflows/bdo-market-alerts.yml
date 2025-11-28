@@ -1,0 +1,11 @@
+name: BDO Market Alerts
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+permissions: {}
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run checkAlerts
+        run: curl -X POST https://lmlwjvagzixtnorfsctd.supabase.co/functions/v1/checkAlerts
